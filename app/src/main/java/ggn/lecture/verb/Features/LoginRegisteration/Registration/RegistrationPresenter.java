@@ -11,13 +11,13 @@ import ggn.lecture.verb.Features.Internal.Base.BasePresenter;
 
 public class RegistrationPresenter extends BasePresenter<RegistrationView>
 {
-    private ObservableField<String> userName         =
+    public ObservableField<String> userName         =
             new ObservableField<>();
-    private ObservableField<String> email            =
+    public ObservableField<String> email            =
             new ObservableField<>();
-    private ObservableField<String> password         =
+    public ObservableField<String> password         =
             new ObservableField<>();
-    private ObservableField<String> confirm_password =
+    public ObservableField<String> confirm_password =
             new ObservableField<>();
 
     public RegistrationPresenter()
