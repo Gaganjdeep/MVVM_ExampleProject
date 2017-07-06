@@ -12,9 +12,9 @@ import ggn.lecture.verb.Features.Internal.Base.BasePresenter;
 public class LoginPresenter extends BasePresenter<LoginView>
 {
 
-    private ObservableField<String> userName =
+    public ObservableField<String> userName =
             new ObservableField<>();
-    private ObservableField<String> password =
+    public ObservableField<String> password =
             new ObservableField<>();
 
     public LoginPresenter()
