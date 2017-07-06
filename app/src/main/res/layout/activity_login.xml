@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+
+    <data>
+        <variable
+            name="data"
+            type="ggn.lecture.verb.Features.LoginRegisteration.Login.LoginPresenter"/>
+    </data>
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="ggn.lecture.verb.Features.LoginRegisteration.Registration.RegistrationActivity">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_registeration"/>
+
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="20dp"
+                      android:gravity="center"
+                      android:text="Login"
+                      android:textSize="21sp"/>
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="40dp"
+                          android:layout_marginRight="40dp"
+                          android:gravity="center"
+                          android:orientation="horizontal">
+
+                <ImageView android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@mipmap/ic_user"/>
+
+                <EditText android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:hint="Username"
+                          android:inputType="textPersonName"
+                          android:text="@={data.userName}"/>
+            </LinearLayout>
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="40dp"
+                          android:layout_marginRight="40dp"
+                          android:gravity="center"
+                          android:orientation="horizontal">
+
+                <ImageView android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@mipmap/ic_lock"/>
+
+                <EditText android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:hint="Password"
+                          android:inputType="textPassword"
+                          android:text="@={data.password}"/>
+            </LinearLayout>
+
+
+            <Button android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/btn_selector"
+                    android:onClick="@{data::LoginClicked}"
+                    android:text="Login"
+                    android:textColor="@color/white"/>
+
+
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:orientation="horizontal">
+
+                <LinearLayout android:id="@+id/layoutForgetPassword"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_alignParentLeft="true"
+                              android:background="@drawable/default_btn_selector"
+                              android:gravity="center"
+                              android:orientation="vertical"
+                              android:padding="5dp">
+
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="Forgot password?"/>
+                    <View android:layout_width="match_parent"
+                          android:layout_height="1dp"
+                          android:background="@color/greyLight"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/layoutSignUp"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_alignParentRight="true"
+                              android:background="@drawable/default_btn_selector"
+                              android:gravity="center"
+                              android:orientation="vertical"
+                              android:padding="5dp">
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="Create a New Account"/>
+                    <View android:layout_width="match_parent"
+                          android:layout_height="1dp"
+                          android:background="@color/greyLight"/>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <View android:layout_width="match_parent"
+                  android:layout_height="1dp"
+                  android:layout_marginTop="20dp"
+                  android:background="@color/greyLight"/>
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="20dp"
+                      android:gravity="center"
+                      android:text="Or Sign in with social"
+                      android:textColor="@color/colorAccent"
+                      android:textSize="21sp"/>
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:orientation="horizontal">
+
+
+                <ImageButton android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"/>
+
+                <ImageButton android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"/>
+
+                <ImageButton android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

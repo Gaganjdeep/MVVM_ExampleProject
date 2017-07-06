@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+
+    <data>
+        <variable
+            name="data"
+            type="ggn.lecture.verb.Features.LoginRegisteration.Registration.RegistrationPresenter"/>
+    </data>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="ggn.lecture.verb.Features.LoginRegisteration.Registration.RegistrationActivity">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_registeration"/>
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="1"
+                          android:orientation="vertical">
+
+
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_margin="20dp"
+                          android:gravity="center"
+                          android:text="Create New Account"
+                          android:textSize="21sp"/>
+
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginLeft="40dp"
+                              android:layout_marginRight="40dp"
+                              android:gravity="center"
+                              android:orientation="horizontal">
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:src="@mipmap/ic_user"/>
+
+                    <EditText android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:hint="Name"
+                              android:inputType="textPersonName"
+                              android:text="@={data.userName}"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginLeft="40dp"
+                              android:layout_marginRight="40dp"
+                              android:gravity="center"
+                              android:orientation="horizontal">
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:src="@mipmap/ic_mail"/>
+
+                    <EditText android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:hint="Email"
+                              android:inputType="textEmailAddress"
+                              android:text="@={data.email}"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginLeft="40dp"
+                              android:layout_marginRight="40dp"
+                              android:gravity="center"
+                              android:orientation="horizontal">
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:src="@mipmap/ic_lock"/>
+
+                    <EditText android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:hint="Password"
+                              android:inputType="textPassword"
+                              android:text="@={data.password}"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginLeft="40dp"
+                              android:layout_marginRight="40dp"
+                              android:gravity="center"
+                              android:orientation="horizontal">
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:src="@mipmap/ic_lock"/>
+
+                    <EditText android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:hint="Confirm Password"
+                              android:inputType="textPassword"
+                              android:text="@={data.confirm_password}"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <Button android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/btn_selector"
+                    android:onClick="@{data::registerClicked}"
+                    android:text="Register"
+                    android:textColor="@color/white"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

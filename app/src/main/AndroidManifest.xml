@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="ggn.lecture.verb"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".Features.NaviagtionDrawer.NavigationActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".Features.TestPackage.TestActivity">
+        </activity>
+        <activity
+            android:name=".UtilsG.Anim.CircularReveal.CircularRevealActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:noHistory="true"
+            android:theme="@style/FullscreenTheme">
+        </activity>
+
+        <receiver android:name=".UtilsG.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Features.Splash.SplashActivity"
+                  android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            >
+        </activity>
+        <activity android:name=".Features.LoginRegisteration.ForgotPassword.ForgotPasswordActivity">
+        </activity>
+        <activity android:name=".Features.LoginRegisteration.UserPrefrence.UserSelectionActivity">
+        </activity>
+        <activity android:name=".Features.LoginRegisteration.Registration.RegistrationActivity">
+        </activity>
+        <activity android:name=".Features.LoginRegisteration.Login.LoginActivity">
+        </activity>
+    </application>
+
+</manifest>
