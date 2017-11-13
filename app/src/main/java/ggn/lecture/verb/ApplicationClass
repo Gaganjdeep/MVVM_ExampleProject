@@ -1,0 +1,89 @@
+public class ApplicationClass extends Application {
+
+    private static Retrofit retrofit;
+
+  
+
+    public static void setLanguage(String language) {
+        ApplicationClass.language = language;
+    }
+
+    public static Retrofit getRetrofit() {
+        if (retrofit == null) {
+            initRetrofitModule();
+        }
+        return retrofit;
+    }
+
+    public static void resetRetrofit() {
+        retrofit = null;
+    }
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        sInstance = this;
+//        MultiDex.install(getApplicationContext());
+        //for camera
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+        }
+
+        initRetrofitModule();
+    }
+
+    private static void initRetrofitModule() {
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Web.Path.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(okClient())
+                .build();
+
+    }
+
+    private static OkHttpClient okClient() {
+
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        httpClient.connectTimeout(5, TimeUnit.MINUTES);
+        httpClient.readTimeout(5, TimeUnit.MINUTES);
+       /** httpClient.addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Interceptor.Chain chain) throws IOException {
+                Request original = chain.request();
+                String  deviceToken;
+
+                if (FirebaseInstanceId.getInstance().getToken() != null)
+                    deviceToken = FirebaseInstanceId.getInstance().getToken();
+                else
+                    deviceToken = "";
+
+                // Request customization: add request headers
+                Request.Builder requestBuilder = original.newBuilder()
+//                        .header("Content-Type", "application/json")
+//                        .header("Accept-LanguageKey", "en_US")
+                        .header("language", getLanguage())
+                        .header("Authorization", "Bearer " + token)
+                        .header("device_type", "android")
+                        .header("booking_number", getBookingNumber())
+                        .header("user_id", getUserId())
+                        .header("device_id", deviceToken);
+
+                Request request = requestBuilder.build();
+                return chain.proceed(request);
+            }
+        });*/
+
+        return httpClient.build();
+    }
+
+    private static ApplicationClass sInstance = null;
+
+    // Getter to access Singleton instance
+    public static ApplicationClass getInstance() {
+        return sInstance;
+    }
+}
